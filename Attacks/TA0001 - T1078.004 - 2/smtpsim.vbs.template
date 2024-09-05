@@ -1,0 +1,49 @@
+' Start SMTP Console in the foreground and don't wait
+set oShell = CreateObject("WScript.Shell")
+WScript.Sleep 2500
+oShell.Run "SMTPConsole.exe", 1, false
+WScript.Sleep 2500
+
+' Connect to Office 365
+oShell.SendKeys("%(ZZ){ENTER}C") 'ZZ is just to highlight the bar, holding alt for a little bit longer than just ALT+A
+WScript.Sleep 100
+oShell.SendKeys("smtp.office365.com{TAB}587{ENTER}")
+WScript.Sleep 2500
+' Send EHLO
+oShell.SendKeys("EHLO ta0001-t1078.002-2{ENTER}")
+WScript.Sleep 1000
+' StartTLS
+oShell.SendKeys("%(ZZ){ENTER}S{ENTER}")
+WScript.Sleep 2500
+' Send EHLO again
+oShell.SendKeys("EHLO ta0001-t1078.002-2{ENTER}")
+WScript.Sleep 500
+' Log in
+oShell.SendKeys("AUTH LOGIN{ENTER}")
+WScript.Sleep 1000
+oShell.SendKeys("%USERNAMEBASE64%{ENTER}")
+WScript.Sleep 250
+oShell.SendKeys("%PASSWORDBASE64%{ENTER}")
+WScript.Sleep 250
+' Send envelope information
+oShell.SendKeys("MAIL FROM:<%USERNAME%>{ENTER}")
+WScript.Sleep 100
+oShell.SendKeys("RCPT TO:<%USERNAME%>{ENTER}")
+WScript.Sleep 100
+oShell.SendKeys("DATA{ENTER}")
+WScript.Sleep 200
+' Send headers
+oShell.SendKeys("From: %FROMNAME% <%USERNAME%>{ENTER}")
+oShell.SendKeys("To: %FROMNAME% <%USERNAME%>{ENTER}")
+oShell.SendKeys("Date: {ENTER}")
+oShell.SendKeys("Subject: TA0001 - T1078.002 - 2{ENTER}")
+oShell.SendKeys("{ENTER}")
+oShell.SendKeys("This is a test")
+' We assume the server replied with "End data with <CR><LF>.<CR><LF>"
+oShell.SendKeys("{ENTER}.{ENTER}")
+WScript.Sleep 1000
+oShell.SendKeys("QUIT{ENTER}")
+
+' Close
+WScript.Sleep 1000
+oShell.SendKeys("%({F4})")

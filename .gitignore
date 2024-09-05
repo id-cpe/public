@@ -1,0 +1,9 @@
+# Don't commit .env files, just .env.dist
+*.env
+
+Data/thesis-data-dvm
+
+Attacks/APIs/AES
+
+**/00000000.pky
+**/00000000.eky
