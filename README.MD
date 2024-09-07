@@ -1,4 +1,4 @@
-# Intrusion Detection in Cloud Productivity Environmens
+# Intrusion Detection in Cloud Productivity Environments
 
 ## Included work
 
