@@ -1,5 +1,34 @@
 # Intrusion Detection in Cloud Productivity Environments
 
+## About the scripts
+This repository contains the scripts that are used in the work. Scripts are located in the `Attacks` subfolder. For each attack method, a specific subfolder is created. The attack methods in the work describe the scripts that are needed; typically there is a `run.ps1` script that simulates the attacker behaviour. If there are other scripts for comparable normal methods or for preparation, they are named differently and the attack method specifies who runs the script.
+
+Scripts are tested on:
+- Fedora Linux 39, PowerShell v7.4.5
+- Windows 11 23H2 build 22631.2715, PowerShell 5.1.22621.2506
+
+In the work, unless otherwise indicated, a (frozen) virtual machine with the following software was used, both for the victim and for the attacker:
+- Windows 11 23H2, build 22631.2715
+- Firefox LTS 115.9.1 Extended Support Release
+- Git for Windows 2.44.0.windows.1
+- Microsoft Office Monthly Enterprise Channel, version 2402¹
+
+¹ Only used for specific attacks, OneDrive's automatic start was disabled
+
+On boot of the machine, the `aa_start.bat` script runs.
+
+A VPN is used for all traffic of the virtual machine. A Canadian VPN provider was used with four locations in Amsterdam. One location was exclusively used for traffic by the 'attacker'; another location was exclusively used by the 'victim'. The VPN service runs outside of the virtual machine, except in the case of the Windows server.
+
+## About the data
+Outputted logs are located in the `Data` subfolder. Both the `.json` and the `.raw.json` files are created using the `collectData.ps1` script and use the Office 365 Management APIs.
+
+The script downloads the data for a specific time period to the `.raw.json` file. This file contains outputs as they were received from Microsoft and data there was not altered. It is important to note the boundaries of these time periods are not exact; sometimes the APIs return more or slightly less data.
+
+The output in the `.json` files is filtered. 
+- For recognisiability when looking at the data, the script changes maps the IP addresses to either `192.0.2.0/24` (victim) and `198.51.100.0/24` (attacker). Public IP addresses belonging to Microsoft or located in the same datacenter as Microsoft are not replaced. No other IP addresses are present in the `.json` files.
+- For recognisability, the tenant ID is replaced with a fixed string and UPNs are also replaced with a non-existing domain.
+- Time is shifted such that the start of a test is always marked by the data 1999-12-31T00:00:00. If data before that point was present in the generated `.json`, it was manually inspected before being removed, to avoid mistakes. This maximum time difference is bound by the time period used for obtaining the raw data. 
+
 ## Included work
 
 ### Exchange Web Services
@@ -40,9 +69,20 @@ License: [Apache 2.0](https://github.com/openssl/openssl/blob/036cbb6bbf30955abd
 ### powershell-aes
 For an attack where we encrypt files, we use the 67241cc commit of PowerShell.
 
-Authors: [Jimmy Lin](https://github.com/mnghsn)
-Available from: [https://github.com/mnghsn/powershell-aes/tree/67241cc](https://github.com/mnghsn/powershell-aes/tree/67241cc)
+Authors: [Jimmy Lin](https://github.com/mnghsn)<br/>
+Available from: [https://github.com/mnghsn/powershell-aes/tree/67241cc](https://github.com/mnghsn/powershell-aes/tree/67241cc)<br/>
 License: [MIT](https://github.com/mnghsn/powershell-aes/blob/67241ccf60aaaab2f59d159e6890c4d462656574/LICENSE.md)
+
+### IP address lookup
+To verify whether an IP address is in use by Microsoft, a call to `https://ip.ward.nl/{ip}` is made in `collectData.ps1`. At the time of writing, this service is available for free without authentication and replies relatively fast. Other services that lookup the organisation name and postal code for an IP address are available as well and can be used in its place.
+
+If you wish to avoid third parties, it is possible to lookup IP addresses through the web interface of right Regional Internet registry. When using the `whois` command for large number of IP addresses, rate limiting may occur. 
+
+- AFRINIC ([https://afrinic.net/whois-web/public/?lang=en](https://afrinic.net/whois-web/public/?lang=en))
+- ARIN ([https://search.arin.net/rdap/](https://search.arin.net/rdap/))
+- APNIC ([https://wq.apnic.net/static/search.html](https://wq.apnic.net/static/search.html))
+- LACNIC ([https://query.milacnic.lacnic.net/search](https://query.milacnic.lacnic.net/search))
+- RIPE NCC ([https://apps.db.ripe.net/db-web-ui/query](https://apps.db.ripe.net/db-web-ui/query))
 
 ## Notable changes to the tenant
 ### Power Automate / Azure API Hub

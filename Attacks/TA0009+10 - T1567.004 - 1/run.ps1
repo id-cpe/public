@@ -3,7 +3,7 @@
 Connect to Graph API and create a webhook for new incoming messages
 
 .DESCRIPTION
-TAZZ00: Collection & Exfiltration
+TA0009/10: Collection & Exfiltration
 T1567.004: Exfiltration over Web Service: Exfiltration over Webhook
 1st attack method
 #>

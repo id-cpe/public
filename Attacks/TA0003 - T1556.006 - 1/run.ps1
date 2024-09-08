@@ -5,7 +5,7 @@ Connect to Graph API with a user with/without MFA and send an email
 .DESCRIPTION
 TA0003: Persistence
 T1556.006: Multi-Factor Authentication
-1st attack method
+1st attack method & 1st comparison method
 #>
 
 Get-Module | Where-Object name -eq readenv | Remove-Module

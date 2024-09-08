@@ -1,11 +1,11 @@
 <#
 .SYNOPSIS
-Connect to Graph API, upload a lot of files and subsequently download a lot of files to the default document library in the default site.
+Connect to Graph API with a user with/without MFA and create a file
 
 .DESCRIPTION
-TAZZ00: Collection & Exfiltration
-T1530: Data from Cloud Storage
-1st attack method
+TA0003: Persistence
+T1556.006: Multi-Factor Authentication
+2nd attack method & 2nd comparison method
 #>
 
 Get-Module | Where-Object name -eq readenv | Remove-Module
@@ -38,7 +38,7 @@ if ($null -eq $driveId) {
 $url = "https://graph.microsoft.com/v1.0/drives/$driveId/root/children"
 $rand = Get-Random -Minimum 1000 -Maximum 9999
 $newFolder = @{
-  "name" ="TAZZ00 - T1530 - 1 - $rand";
+  "name" ="TA0003 - T1556.006 - 2 - $rand";
   "folder" = @{};
   "@microsoft.graph.conflictBehavior" = "fail";
 }
@@ -51,40 +51,10 @@ if ($null -eq $folderId) {
   exit 1
 }
 
-# Create 100 files in this folder
-$noFiles = 100
-$i = 0
-# $fileIds = New-Object string[] $noFiles
-while ($i -lt $noFiles) {
-  $url = "https://graph.microsoft.com/v1.0/drives/$driveId/items/$($folderId):/$i.txt:/content"
-  $content = "It does not really matter what the content of the file is $i"
-  $response = Invoke-RestMethod $url -Method Put -ContentType "text/plain" -Headers @{"Authorization"="Bearer $accessToken"} -Body $content
-  # $fileIds[$i] = $response.id
-  # Write-Host $response.id
-  $i += 1
-  Start-Sleep -Milliseconds 100
-}
-
-# This download will not trigger malware scanning
-# $downloadUrl = $response.'@microsoft.graph.downloadUrl'
-# Invoke-WebRequest $downloadUrl
-
-# Wait 3 minutes for good measure
-Wait-KeyOrTimeOut -Timeout 180000
-
-# Because the ID that is returned during creation is the parent folder, we need to get the children IDs separately
-$url = "https://graph.microsoft.com/beta/drives/$driveId/items/$($folderId)/children"
-$response = Invoke-WebRequest $url -Method Get -Headers @{"Authorization"="Bearer $accessToken"}
-# Error with Invoke-RestMethod???
-$ids = (ConvertFrom-Json $response.Content).value.id
-
-foreach ($id in $ids) {
-  $url = "https://graph.microsoft.com/beta/drives/$driveId/items/$($id)"
-  $response = Invoke-RestMethod $url -Method Get -Headers @{"Authorization"="Bearer $accessToken"}
-  $downloadUrl = $response.'@microsoft.graph.downloadUrl'
-  Invoke-WebRequest $downloadUrl | Out-Null
-  Start-Sleep -Milliseconds 100
-}
+# Create a test file in this folder
+$url = "https://graph.microsoft.com/v1.0/drives/$driveId/items/$($folderId):/test.txt:/content"
+$content = "Contents of the test file"
+$response = Invoke-RestMethod $url -Method Put -ContentType "text/plain" -Headers @{"Authorization"="Bearer $accessToken"} -Body $content
 
 # Delete the folder again
 Wait-KeyOrTimeOut -Timeout 90000

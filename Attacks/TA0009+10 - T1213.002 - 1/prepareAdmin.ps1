@@ -4,7 +4,7 @@ This is the script that the admin uses to prepare the environment which is then 
 Connect to SharePoint REST API v1 and the Graph API, create a sharepoint site
 
 .DESCRIPTION
-TAZZ00: Collection & Exfiltration
+TA0009/10: Collection & Exfiltration
 T1213.002:  Data from Information Repositories: Sharepoint 
 Preparation for attack method 1
 #>

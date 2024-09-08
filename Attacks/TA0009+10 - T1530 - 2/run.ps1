@@ -3,7 +3,7 @@
 Connect to Graph API, upload a lot of files and subsequently download a lot of files to the default document library in the default site by spoofing the OneDrive sync client user agent header.
 
 .DESCRIPTION
-TAZZ00: Collection & Exfiltration
+TA0009/10: Collection & Exfiltration
 T1530: Data from Cloud Storage
 2nd attack method
 #>

@@ -11,6 +11,6 @@ if ((Get-NetIPAddress | Where-Object IPAddress -like 10.138.*).IPAddress.Count -
     } until ($ping.StatusCode -eq 0) 
     Write-Host
     Set-Location $HOME/Desktop
-    git clone git@github.com:rinkp/id-cpe --single-branch --depth=1
+    git clone git@github.com:id-cpe/private --single-branch --depth=1 id-cpe
     robocopy /E /copyall secrets id-cpe
 }

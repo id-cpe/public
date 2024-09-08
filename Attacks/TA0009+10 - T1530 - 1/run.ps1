@@ -3,9 +3,9 @@
 Connect to Graph API, upload a lot of files and subsequently download a lot of files to the default document library in the default site.
 
 .DESCRIPTION
-TAZZ00: Collection & Exfiltration
+TA0009/10: Collection & Exfiltration
 T1530: Data from Cloud Storage
-3rd attack method
+1st attack method
 #>
 
 Get-Module | Where-Object name -eq readenv | Remove-Module
@@ -69,29 +69,22 @@ while ($i -lt $noFiles) {
 # $downloadUrl = $response.'@microsoft.graph.downloadUrl'
 # Invoke-WebRequest $downloadUrl
 
-# Wait 10 minutes to make sure that search works
-Wait-KeyOrTimeOut -Timeout (15 * 60 * 1000)
+# Wait 3 minutes for good measure
+Wait-KeyOrTimeOut -Timeout 180000
 
-# We search for 0.txt which we know exists
-$url = "https://graph.microsoft.com/beta/drives/$driveId/search(q='0.txt')"
+# Because the ID that is returned during creation is the parent folder, we need to get the children IDs separately
+$url = "https://graph.microsoft.com/beta/drives/$driveId/items/$($folderId)/children"
 $response = Invoke-WebRequest $url -Method Get -Headers @{"Authorization"="Bearer $accessToken"}
-$items = ($response.Content | ConvertFrom-Json).value
+# Error with Invoke-RestMethod???
+$ids = (ConvertFrom-Json $response.Content).value.id
 
-$found = $null
-foreach ($item in $items) {
-  if ($item.parentReference.id -eq $folderId) {
-    $found = $item.id
-  }
+foreach ($id in $ids) {
+  $url = "https://graph.microsoft.com/beta/drives/$driveId/items/$($id)"
+  $response = Invoke-RestMethod $url -Method Get -Headers @{"Authorization"="Bearer $accessToken"}
+  $downloadUrl = $response.'@microsoft.graph.downloadUrl'
+  Invoke-WebRequest $downloadUrl | Out-Null
+  Start-Sleep -Milliseconds 100
 }
-if ($null -eq $found) {
-  Write-Error "No file found"
-  exit 1
-}
-
-$url = "https://graph.microsoft.com/beta/drives/$driveId/items/$found"
-$response = Invoke-RestMethod $url -Method Get -Headers @{"Authorization"="Bearer $accessToken"}
-$downloadUrl = $response.'@microsoft.graph.downloadUrl'
-Invoke-WebRequest $downloadUrl | Out-Null
 
 # Delete the folder again
 Wait-KeyOrTimeOut -Timeout 90000

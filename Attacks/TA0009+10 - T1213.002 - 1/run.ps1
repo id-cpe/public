@@ -3,7 +3,7 @@
 Connect to the Graph API and fetch a SharePoint page
 
 .DESCRIPTION
-TAZZ00: Collection & Exfiltration
+TA0009/10: Collection & Exfiltration
 T1213.002:  Data from Information Repositories: Sharepoint 
 1st attack method
 #>
