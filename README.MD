@@ -29,6 +29,9 @@ The output in the `.json` files is filtered.
 - For recognisability, the tenant ID is replaced with a fixed string and UPNs are also replaced with a non-existing domain.
 - Time is shifted such that the start of a test is always marked by the data 1999-12-31T00:00:00. If data before that point was present in the generated `.json`, it was manually inspected before being removed, to avoid mistakes. This maximum time difference is bound by the time period used for obtaining the raw data. 
 
+## Operationalisation
+As part of the findings, a small study was done on data in a production environment. That data is not included here. The scripts used to collect the data for a 24-hour period (`collectPathData.ps1`), used to summarise the data (`runStats.ps1`), and to filter the data for relevant events (`getSpecificEvents.ps1`) are included. 
+
 ## Included work
 
 ### Exchange Web Services
@@ -67,7 +70,7 @@ Available from: [https://slproweb.com/products/Win32OpenSSL.html](https://slprow
 License: [Apache 2.0](https://github.com/openssl/openssl/blob/036cbb6bbf30955abdcffaf6e52cd926d8d8ee75/LICENSE.txt)
 
 ### powershell-aes
-For an attack where we encrypt files, we use the 67241cc commit of PowerShell.
+For an attack where we encrypt files, we use the `67241cc` commit of powershell-aes.
 
 Authors: [Jimmy Lin](https://github.com/mnghsn)<br/>
 Available from: [https://github.com/mnghsn/powershell-aes/tree/67241cc](https://github.com/mnghsn/powershell-aes/tree/67241cc)<br/>

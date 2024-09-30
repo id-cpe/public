@@ -1,0 +1,40 @@
+title: Suspicious mailbox forward Outlook.exe
+id: 40404040-4040-4040-8888-000000000010
+status: test
+description: A user creates a broad or suspicious mailbox forward rule through Outlook for desktop
+tags:
+    - attack.t1114 #T1114.003
+    - attack.collection
+logsource: # Hypothetical values
+    category: email
+    product: office365
+    service: exchange
+detection:
+    selection_rightevent: #This determines the structure of the rest of the log
+        Workload|startswith: 'Exchange'
+        Operation: 'UpdateInboxRules'
+        OperationProperties.RuleOperation:
+          - 'AddMailboxRule'
+          - 'ModifyMailboxRule'
+    scope_fullscope:
+        OperationProperties.RuleCondition:
+            - ''
+            - 'MessageToMe Equal True'
+    scope_sensitivescope1:
+        OperationProperties.RuleCondition|contains:
+            - 'SubString'
+            - 'SubjectProperty'
+            - 'BodyProperty'
+    scope_sensitivescope2:
+        OperationProperties.RuleCondition|contains:
+            - 'account'
+            - 'password'
+            - 'reset'
+            - 'secure'
+            - 'confidential'
+    action_sensitiveaction:
+        OperationProperties.RuleActions|contains:
+            - 'Forward'
+    condition: all of selection* and (scope_fullscope or (scope_sensitivescope1 and scope_sensitivescope2)) and any of action* and not any of filter*
+level: high
+

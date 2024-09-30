@@ -1,0 +1,64 @@
+title: Suspicious mailbox rule for deleting through OWA
+id: 40404040-4040-4040-8888-000000000001
+status: test
+description: A user creates a suspicious mailbox rule to delete or hide messages through OWA
+tags:
+    - attack.t1564 #T1564.008
+    - attack.defense-evasion
+logsource: # Hypothetical values
+    category: email
+    product: office365
+    service: exchange
+detection:
+    selection_rightevent: #This determines the structure of the rest of the log
+        Workload|startswith: 'Exchange'
+        Operation:
+            - 'New-InboxRule'
+            - 'Set-InboxRule'
+    scope_restricted: # There are substantial filters such that this does not cover all messages
+        - Parameters.BodyContainsWords|re: '.{1,}'
+        - Parameters.SubjectContainsWords|re: '.{1,}'
+        - Parameters.SubjectOrBodyContainsWords|re: '.{1,}'
+        - Parameters.From|contains: '@'
+        - Parameters.MessageTypeMatches:
+            - 'AutomaticReply'
+            - 'AutomaticForward'
+            - 'Calendaring'
+            - 'CalendaringResponse'
+            - 'Voicemail'
+            - 'ReadReceipt'
+            - 'NonDeliveryReport'
+    scope_sensitivescope2: # But if the restriction is filtering for sensitive messages, we still trigger
+        - Parameters.BodyContainsWords|contains:
+            - 'account'
+            - 'password'
+            - 'reset'
+            - 'secure'
+            - 'confidential'
+            - 'hack'
+            - 'virus'
+            - 'malware'
+        - Parameters.SubjectContainsWords|contains:
+            - 'account'
+            - 'password'
+            - 'reset'
+            - 'secure'
+            - 'confidential'
+            - 'hack'
+            - 'virus'
+            - 'malware'
+        - Parameters.SubjectOrBodyContainsWords|contains:
+            - 'account'
+            - 'password'
+            - 'reset'
+            - 'secure'
+            - 'confidential'
+            - 'hack'
+            - 'virus'
+            - 'malware'
+    action_sensitiveaction:
+        - Parameters.DeleteMessage: true
+        - Parameters.SoftDeleteMessage: true
+        - Parameters.MoveToFolder|contains: 'deleted'
+    condition: all of selection* and (not scope_restricted or scope_sensitivescope2) and any of action* and not any of filter*
+level: medium
