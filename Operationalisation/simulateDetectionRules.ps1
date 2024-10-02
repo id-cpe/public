@@ -7,10 +7,11 @@ To show how the findings can be operationalised, we simulate signature-based det
 We converted the rules to elasticsearch rules using https://sigconverter.io/ and then manually created an equivalent PowerShell expression
 #>
 
-
-$day = Read-Host -Prompt "Day yyyy-MM-dd"
-$day = (Get-Date $day -Hour 0 -Minute 0 -Second 0 -Millisecond 0)
-$dateF = Get-Date $day -Format "yyyy-MM-dd HH.mm.ss"
+$name = $null
+while (!(Test-Path "$PWD/data/$name.raw.json")) {
+    $name = Read-Host -Prompt "Log file (.raw.json)"
+    $name = $name.Replace(".raw.json", "")
+}
 
 # Rule definitions based on `rules.MD`
 function Test-OwaForward (
@@ -97,12 +98,48 @@ function Test-OutlookDelete (
     $selection_rightevent -and ($scope_fullscope -or ($scope_sensitivescope1 -and $scope_sensitivescope2)) -and $action_sensitiveaction
 }
 
+function Test-GraphForward (
+    [Parameter(Mandatory)][object] $logRecord
+) {
+    $selection_rightevent = $logRecord.Workload -like "Exchange*" -and `
+        $logRecord.Operation -eq 'UpdateInboxRules' -and `
+        $logRecord.OperationProperties.RuleOperation -in $('Create')
+    if (!$selection_rightevent) { return } #Speed up, does not affect result
+
+    $scope_fullscope = $logRecord.OperationProperties.Conditions -eq ''
+
+    $scope_sensitivescope1 = $logRecord.OperationProperties.Conditions -match 'Contains|Subject|Body'
+    $scope_sensitivescope2 = $logRecord.OperationProperties.ServerRule -match 'QUNDT1VOV|FDQ09VTl|BQ0NPVU5U|UEFTU1dPUk|BBU1NXT1JE|QQVNTV09SR|UkVTRV|JFU0VU|SRVNFV|U0VDVVJF|NFQ1VSR|TRUNVUk|Q09ORklERU5USUFM|NPTkZJREVOVElBT|DT05GSURFTlRJQU'
+
+    $action_sensitiveaction = $logRecord.OperationProperties.Actions -match 'Forward'
+
+    $selection_rightevent -and ($scope_fullscope -or ($scope_sensitivescope1 -and $scope_sensitivescope2)) -and $action_sensitiveaction
+}
+
+function Test-GraphDelete (
+    [Parameter(Mandatory)][object] $logRecord
+) {
+    $selection_rightevent = $logRecord.Workload -like "Exchange*" -and `
+        $logRecord.Operation -eq 'UpdateInboxRules' -and `
+        $logRecord.OperationProperties.RuleOperation -in $('Create')
+    if (!$selection_rightevent) { return } #Speed up, does not affect result
+
+    $scope_fullscope = $logRecord.OperationProperties.Conditions -eq ''
+
+    $scope_sensitivescope1 = $logRecord.OperationProperties.Conditions -match 'Contains|Subject|Body'
+    $scope_sensitivescope2 = $logRecord.OperationProperties.ServerRule -match 'QUNDT1VOV|FDQ09VTl|BQ0NPVU5U|UEFTU1dPUk|BBU1NXT1JE|QQVNTV09SR|UkVTRV|JFU0VU|SRVNFV|U0VDVVJF|NFQ1VSR|TRUNVUk|Q09ORklERU5USUFM|NPTkZJREVOVElBT|DT05GSURFTlRJQU|SEFDS|hBQ0|IQUNL|VklSVV|ZJUlVT|WSVJVU|TUFMV0FSR|1BTFdBUk|NQUxXQVJF'
+
+    $action_sensitiveaction = $logRecord.OperationProperties.Actions -match 'Move|Delete'
+
+    $selection_rightevent -and ($scope_fullscope -or ($scope_sensitivescope1 -and $scope_sensitivescope2)) -and $action_sensitiveaction
+}
+
 
 # Start PRE
 $logs = @()
 # End PRE
 
-[System.IO.StreamReader]$sr = [System.IO.File]::Open("$PWD/data/$dateF.raw.json", [System.IO.FileMode]::Open, [System.IO.FileAccess]::Read, [System.IO.FileShare]::Read)
+[System.IO.StreamReader]$sr = [System.IO.File]::Open("$PWD/data/$name.raw.json", [System.IO.FileMode]::Open, [System.IO.FileAccess]::Read, [System.IO.FileShare]::Read)
 while (-not $sr.EndOfStream){
     $line = $sr.ReadLine()
     $outputLogs = $line | ConvertFrom-Json
@@ -135,7 +172,7 @@ while (-not $sr.EndOfStream){
             Write-Warning "Suspicious mailbox rule for deleting through OWA"
             Write-Host $_
         }
-        IF (Test-OutlookForward $_) {
+        if (Test-OutlookForward $_) {
             Write-Warning "Suspicious mailbox forward Outlook.exe"
             Write-Host $_
         }
@@ -143,25 +180,15 @@ while (-not $sr.EndOfStream){
             Write-Warning "Suspicious mailbox rule for deleting in Outlook.exe"
             Write-Host $_
         }
+        if (Test-GraphForward $_) {
+            Write-Warning "Suspicious mailbox forward Graph API"
+            Write-Host $_
+        }
+        if (Test-GraphDelete $_) {
+            Write-Warning "Suspicious mailbox rule for deleting Graph API"
+            Write-Host $_
+        }
     }
     $logs += $filteredLogs
 }
 $sr.Close()
-
-
-# https://stackoverflow.com/a/55384556
-function Format-Json([Parameter(Mandatory, ValueFromPipeline)][String] $json) {
-    $indent = 0;
-    ($json -Split "`n" | ForEach-Object {
-        if ($_ -match '[\}\]]\s*,?\s*$') {
-            # This line ends with ] or }, decrement the indentation level
-            $indent--
-        }
-        $line = ('  ' * $indent) + $($_.TrimStart() -replace '":  (["{[])', '": $1' -replace ':  ', ': ')
-        if ($_ -match '[\{\[]\s*$') {
-            # This line ends with [ or {, increment the indentation level
-            $indent++
-        }
-        $line
-    }) -Join "`n"
-}

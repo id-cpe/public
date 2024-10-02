@@ -467,3 +467,253 @@ $action_sensitiveaction = $logRecord.OperationProperties.RuleActions -match 'Mov
 
 $selection_rightevent -and ($scope_fullscope -or ($scope_sensitivescope1 -and $scope_sensitivescope2)) -and $action_sensitiveaction
 ```
+
+## Suspicious mailbox forward Graph API
+ID: 40404040-4040-4040-8888-000000000020
+
+Sigma definition:
+```yaml
+detection:
+    selection_rightevent: #This determines the structure of the rest of the log
+        Workload|startswith: 'Exchange'
+        Operation: 'UpdateInboxRules'
+        OperationProperties.RuleOperation:
+          - 'Create'
+    scope_fullscope:
+        OperationProperties.Conditions:
+            - ''
+    scope_sensitivescope1:
+        OperationProperties.Conditions|contains:
+            - 'Contains'
+            - 'Subject'
+            - 'Body'
+    scope_sensitivescope2:
+        OperationProperties.ServerRule|base64offset|contains:
+            - 'account'
+            - 'password'
+            - 'reset'
+            - 'secure'
+            - 'confidential'
+    action_sensitiveaction:
+        OperationProperties.Actions|contains:
+            - 'Forward'
+    condition: all of selection* and (scope_fullscope or (scope_sensitivescope1 and scope_sensitivescope2)) and any of action* and not any of filter*
+```
+
+Kibana Query Language:
+```
+(
+    Workload:Exchange* AND 
+    Operation:UpdateInboxRules AND 
+    OperationProperties.RuleOperation:Create
+) AND (
+    OperationProperties.Conditions:"" OR (
+        (
+            OperationProperties.Conditions:(*Contains* OR *Subject* OR *Body*)
+        ) AND (
+            OperationProperties.ServerRule:*QUNDT1VOV* OR 
+            OperationProperties.ServerRule:*FDQ09VTl* OR 
+            OperationProperties.ServerRule:*BQ0NPVU5U* OR 
+            OperationProperties.ServerRule:*UEFTU1dPUk* OR 
+            OperationProperties.ServerRule:*BBU1NXT1JE* OR 
+            OperationProperties.ServerRule:*QQVNTV09SR* OR 
+            OperationProperties.ServerRule:*UkVTRV* OR 
+            OperationProperties.ServerRule:*JFU0VU* OR 
+            OperationProperties.ServerRule:*SRVNFV* OR 
+            OperationProperties.ServerRule:*U0VDVVJF* OR 
+            OperationProperties.ServerRule:*NFQ1VSR* OR 
+            OperationProperties.ServerRule:*TRUNVUk* OR 
+            OperationProperties.ServerRule:*Q09ORklERU5USUFM* OR 
+            OperationProperties.ServerRule:*NPTkZJREVOVElBT* OR 
+            OperationProperties.ServerRule:*DT05GSURFTlRJQU*
+        )
+    )
+) AND 
+OperationProperties.Actions:*Forward* AND 
+(NOT ())
+```
+
+PowerShell:
+```powershell
+# (
+#     Workload:Exchange* AND 
+#     Operation:UpdateInboxRules AND 
+#     OperationProperties.RuleOperation:Create
+# ) AND (
+$selection_rightevent = $logRecord.Workload -like "Exchange*" -and `
+    $logRecord.Operation -eq 'UpdateInboxRules' -and `
+    $logRecord.OperationProperties.RuleOperation -in $('Create')
+if (!$selection_rightevent) { return } #Speed up, does not affect result
+
+#     OperationProperties.Conditions:"" OR (
+$scope_fullscope = $logRecord.OperationProperties.Conditions -eq ''
+
+#         (
+#             OperationProperties.Conditions:(*Contains* OR *Subject* OR *Body*)
+#         ) AND (
+        #     OperationProperties.ServerRule:*QUNDT1VOV* OR 
+        #     OperationProperties.ServerRule:*FDQ09VTl* OR 
+        #     OperationProperties.ServerRule:*BQ0NPVU5U* OR 
+        #     OperationProperties.ServerRule:*UEFTU1dPUk* OR 
+        #     OperationProperties.ServerRule:*BBU1NXT1JE* OR 
+        #     OperationProperties.ServerRule:*QQVNTV09SR* OR 
+        #     OperationProperties.ServerRule:*UkVTRV* OR 
+        #     OperationProperties.ServerRule:*JFU0VU* OR 
+        #     OperationProperties.ServerRule:*SRVNFV* OR 
+        #     OperationProperties.ServerRule:*U0VDVVJF* OR 
+        #     OperationProperties.ServerRule:*NFQ1VSR* OR 
+        #     OperationProperties.ServerRule:*TRUNVUk* OR 
+        #     OperationProperties.ServerRule:*Q09ORklERU5USUFM* OR 
+        #     OperationProperties.ServerRule:*NPTkZJREVOVElBT* OR 
+        #     OperationProperties.ServerRule:*DT05GSURFTlRJQU*
+        # )
+#     )
+$scope_sensitivescope1 = $logRecord.OperationProperties.Conditions -match 'Contains|Subject|Body'
+$scope_sensitivescope2 = $logRecord.OperationProperties.ServerRule -match 'QUNDT1VOV|FDQ09VTl|BQ0NPVU5U|UEFTU1dPUk|BBU1NXT1JE|QQVNTV09SR|UkVTRV|JFU0VU|SRVNFV|U0VDVVJF|NFQ1VSR|TRUNVUk|Q09ORklERU5USUFM|NPTkZJREVOVElBT|DT05GSURFTlRJQU'
+
+# ) AND 
+# OperationProperties.Actions:*Forward* AND 
+# (NOT ())
+
+$action_sensitiveaction = $logRecord.OperationProperties.Actions -match 'Forward'
+
+$selection_rightevent -and ($scope_fullscope -or ($scope_sensitivescope1 -and $scope_sensitivescope2)) -and $action_sensitiveaction
+```
+
+## Suspicious mailbox rule for deleting Graph API
+ID: 40404040-4040-4040-8888-000000000021
+
+Sigma definition:
+```yaml
+detection:
+    selection_rightevent: #This determines the structure of the rest of the log
+        Workload|startswith: 'Exchange'
+        Operation: 'UpdateInboxRules'
+        OperationProperties.RuleOperation:
+          - 'Create'
+    scope_fullscope:
+        OperationProperties.Conditions:
+            - ''
+    scope_sensitivescope1:
+        OperationProperties.Conditions|contains:
+            - 'Contains'
+            - 'Subject'
+            - 'Body'
+    scope_sensitivescope2:
+        OperationProperties.ServerRule|base64offset|contains:
+            - 'ACCOUNT'
+            - 'PASSWORD'
+            - 'RESET'
+            - 'SECURE'
+            - 'CONFIDENTIAL'
+            - 'HACK'
+            - 'VIRUS'
+            - 'MALWARE'
+    action_sensitiveaction:
+        OperationProperties.Actions|contains:
+            - 'Move'
+            - 'Delete'
+    condition: all of selection* and (scope_fullscope or (scope_sensitivescope1 and scope_sensitivescope2)) and any of action* and not any of filter*
+```
+
+Kibana Query Language:
+```
+(
+    Workload:Exchange* AND 
+    Operation:UpdateInboxRules AND 
+    OperationProperties.RuleOperation:Create
+) AND (
+    OperationProperties.Conditions:"" OR (
+        (
+            OperationProperties.Conditions:(*Contains* OR *Subject* OR *Body*)
+        ) AND (
+            OperationProperties.ServerRule:*QUNDT1VOV* OR 
+            OperationProperties.ServerRule:*FDQ09VTl* OR 
+            OperationProperties.ServerRule:*BQ0NPVU5U* OR 
+            OperationProperties.ServerRule:*UEFTU1dPUk* OR 
+            OperationProperties.ServerRule:*BBU1NXT1JE* OR 
+            OperationProperties.ServerRule:*QQVNTV09SR* OR 
+            OperationProperties.ServerRule:*UkVTRV* OR 
+            OperationProperties.ServerRule:*JFU0VU* OR 
+            OperationProperties.ServerRule:*SRVNFV* OR 
+            OperationProperties.ServerRule:*U0VDVVJF* OR 
+            OperationProperties.ServerRule:*NFQ1VSR* OR 
+            OperationProperties.ServerRule:*TRUNVUk* OR 
+            OperationProperties.ServerRule:*Q09ORklERU5USUFM* OR 
+            OperationProperties.ServerRule:*NPTkZJREVOVElBT* OR 
+            OperationProperties.ServerRule:*DT05GSURFTlRJQU* OR 
+            OperationProperties.ServerRule:*SEFDS* OR 
+            OperationProperties.ServerRule:*hBQ0* OR 
+            OperationProperties.ServerRule:*IQUNL* OR 
+            OperationProperties.ServerRule:*VklSVV* OR 
+            OperationProperties.ServerRule:*ZJUlVT* OR 
+            OperationProperties.ServerRule:*WSVJVU* OR 
+            OperationProperties.ServerRule:*TUFMV0FSR* OR 
+            OperationProperties.ServerRule:*1BTFdBUk* OR 
+            OperationProperties.ServerRule:*NQUxXQVJF*
+        )
+    )
+) AND (
+    OperationProperties.Actions:(*Move* OR *Delete*)
+) AND (
+    NOT ()
+)
+```
+
+PowerShell:
+```powershell
+# (
+#     Workload:Exchange* AND 
+#     Operation:UpdateInboxRules AND 
+#     OperationProperties.RuleOperation:Create
+$selection_rightevent = $logRecord.Workload -like "Exchange*" -and `
+    $logRecord.Operation -eq 'UpdateInboxRules' -and `
+    $logRecord.OperationProperties.RuleOperation -in $('Create')
+if (!$selection_rightevent) { return } #Speed up, does not affect result
+
+# ) AND (
+#     OperationProperties.Conditions:"" OR (
+$scope_fullscope = $logRecord.OperationProperties.Conditions -eq ''
+
+#         (
+#             OperationProperties.Conditions:(*Contains* OR *Subject* OR *Body*)
+#         ) AND (
+#             OperationProperties.ServerRule:*QUNDT1VOV* OR 
+#             OperationProperties.ServerRule:*FDQ09VTl* OR 
+#             OperationProperties.ServerRule:*BQ0NPVU5U* OR 
+#             OperationProperties.ServerRule:*UEFTU1dPUk* OR 
+#             OperationProperties.ServerRule:*BBU1NXT1JE* OR 
+#             OperationProperties.ServerRule:*QQVNTV09SR* OR 
+#             OperationProperties.ServerRule:*UkVTRV* OR 
+#             OperationProperties.ServerRule:*JFU0VU* OR 
+#             OperationProperties.ServerRule:*SRVNFV* OR 
+#             OperationProperties.ServerRule:*U0VDVVJF* OR 
+#             OperationProperties.ServerRule:*NFQ1VSR* OR 
+#             OperationProperties.ServerRule:*TRUNVUk* OR 
+#             OperationProperties.ServerRule:*Q09ORklERU5USUFM* OR 
+#             OperationProperties.ServerRule:*NPTkZJREVOVElBT* OR 
+#             OperationProperties.ServerRule:*DT05GSURFTlRJQU* OR 
+#             OperationProperties.ServerRule:*SEFDS* OR 
+#             OperationProperties.ServerRule:*hBQ0* OR 
+#             OperationProperties.ServerRule:*IQUNL* OR 
+#             OperationProperties.ServerRule:*VklSVV* OR 
+#             OperationProperties.ServerRule:*ZJUlVT* OR 
+#             OperationProperties.ServerRule:*WSVJVU* OR 
+#             OperationProperties.ServerRule:*TUFMV0FSR* OR 
+#             OperationProperties.ServerRule:*1BTFdBUk* OR 
+#             OperationProperties.ServerRule:*NQUxXQVJF*
+#         )
+#     )
+$scope_sensitivescope1 = $logRecord.OperationProperties.Conditions -match 'Contains|Subject|Body'
+$scope_sensitivescope2 = $logRecord.OperationProperties.ServerRule -match 'QUNDT1VOV|FDQ09VTl|BQ0NPVU5U|UEFTU1dPUk|BBU1NXT1JE|QQVNTV09SR|UkVTRV|JFU0VU|SRVNFV|U0VDVVJF|NFQ1VSR|TRUNVUk|Q09ORklERU5USUFM|NPTkZJREVOVElBT|DT05GSURFTlRJQU|SEFDS|hBQ0|IQUNL|VklSVV|ZJUlVT|WSVJVU|TUFMV0FSR|1BTFdBUk|NQUxXQVJF'
+
+# ) AND (
+#     OperationProperties.Actions:(*Move* OR *Delete*)
+# ) AND (
+#     NOT ()
+# )
+$action_sensitiveaction = $logRecord.OperationProperties.Actions -match 'Move|Delete'
+
+$selection_rightevent -and ($scope_fullscope -or ($scope_sensitivescope1 -and $scope_sensitivescope2)) -and $action_sensitiveaction
+```
+
