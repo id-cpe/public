@@ -1,0 +1,63 @@
+{
+    "CreationTime": "1999-12-31T02:00:00",
+    "Id": "091ef0c6-7b7d-4683-ad44-d5d63b3f92e4",
+    "Operation": "MailItemsAccessed",
+    "OrganizationId": "40404040-4040-4040-4040-404040404040",
+    "RecordType": 50,
+    "ResultStatus": "Succeeded",
+    "UserKey": "100320031988408A",
+    "UserType": 0,
+    "Version": 1,
+    "Workload": "Exchange",
+    "UserId": "HannahE@detectabil.it",
+    "ClientIPAddress": "198.51.100.2",
+    "ClientInfoString": "Client=POP3/IMAP4;Protocol=IMAP4",
+    "ExternalAccess": false,
+    "InternalLogonType": 0,
+    "LogonType": 0,
+    "LogonUserSid": "S-1-5-21-3847099793-823877178-2016750179-7220290",
+    "MailboxGuid": "ebda41b6-27cd-4add-9b08-5e7a09c64062",
+    "MailboxOwnerSid": "S-1-5-21-3847099793-823877178-2016750179-7220290",
+    "MailboxOwnerUPN": "HannahE@detectabil.it",
+    "OperationProperties": [
+        {
+            "Name": "MailAccessType",
+            "Value": "Bind"
+        },
+        {
+            "Name": "IsThrottled",
+            "Value": "False"
+        }
+    ],
+    "OrganizationName": "detectabil.it",
+    "OriginatingServer": "AS8PR09MB6594 (15.20.4200.000)\r\n",
+    "Folders": [
+        {
+            "FolderItems": [
+                {
+                    "Id": "RgAAAACXUL6w6VnrSpPDmY/fUQHGBwDMsTAI7LYBT5bVFbVTlsgZAAAAAAEMAADMsTAI7LYBT5bVFbVTlsgZAAAHzf03AAAJ",
+                    "InternetMessageId": "\u003cAS4PR09MB5766E07B6DDE7AE501B4CAD08F87A@AS4PR09MB5766.eurprd09.prod.outlook.com\u003e",
+                    "SizeInBytes": 35807
+                },
+                {
+                    "Id": "RgAAAACXUL6w6VnrSpPDmY/fUQHGBwDMsTAI7LYBT5bVFbVTlsgZAAAAAAEMAADMsTAI7LYBT5bVFbVTlsgZAAASEi5fAAAJ",
+                    "InternetMessageId": "\u003cAS8PR09MB60212D11932D4BC4D79600579496A@AS8PR09MB6021.eurprd09.prod.outlook.com\u003e",
+                    "SizeInBytes": 246715
+                },
+                {
+                    "Id": "RgAAAACXUL6w6VnrSpPDmY/fUQHGBwDMsTAI7LYBT5bVFbVTlsgZAAAAAAEMAADMsTAI7LYBT5bVFbVTlsgZAAAr/1qNAAAJ",
+                    "InternetMessageId": "\u003cd9304f3a-b62d-4872-85d5-9dca89cddaf8@DB5PEPF00014B89.eurprd02.prod.outlook.com\u003e",
+                    "SizeInBytes": 104047
+                },
+                {
+                    "Id": "RgAAAACXUL6w6VnrSpPDmY/fUQHGBwDMsTAI7LYBT5bVFbVTlsgZAAAAAAEMAADMsTAI7LYBT5bVFbVTlsgZAAAa0E3HAAAJ",
+                    "InternetMessageId": "\u003cAS8PR09MB6021AC45168FDB9821F94A799461A@AS8PR09MB6021.eurprd09.prod.outlook.com\u003e",
+                    "SizeInBytes": 2840677
+                }
+            ],
+            "Id": "LgAAAACXUL6w6VnrSpPDmY/fUQHGAQDMsTAI7LYBT5bVFbVTlsgZAAAAAAEMAAAB",
+            "Path": "\\Inbox"
+        }
+    ],
+    "OperationCount": 4
+}

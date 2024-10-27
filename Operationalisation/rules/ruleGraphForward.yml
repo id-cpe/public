@@ -1,0 +1,38 @@
+title: Suspicious mailbox forward Graph API
+id: 40404040-4040-4040-8888-000000000020
+status: test
+description: A user creates a broad or suspicious mailbox forward rule through Graph API
+tags:
+    - attack.t1114 #T1114.003
+    - attack.collection
+logsource: # Hypothetical values
+    category: email
+    product: office365
+    service: exchange
+detection:
+    selection_rightevent: #This determines the structure of the rest of the log
+        Workload|startswith: 'Exchange'
+        Operation: 'UpdateInboxRules'
+        OperationProperties.RuleOperation:
+          - 'Create'
+    scope_fullscope:
+        OperationProperties.Conditions:
+            - ''
+    scope_sensitivescope1:
+        OperationProperties.Conditions|contains:
+            - 'Contains'
+            - 'Subject'
+            - 'Body'
+    scope_sensitivescope2:
+        OperationProperties.ServerRule|base64offset|contains:
+            - 'ACCOUNT'
+            - 'PASSWORD'
+            - 'RESET'
+            - 'SECURE'
+            - 'CONFIDENTIAL'
+    action_sensitiveaction:
+        OperationProperties.Actions|contains:
+            - 'Forward'
+    condition: all of selection* and (scope_fullscope or (scope_sensitivescope1 and scope_sensitivescope2)) and any of action* and not any of filter*
+level: high
+

@@ -1,0 +1,55 @@
+{"requestedconnectortype": "shared_onedriveforbusiness",
+    "flowbody": {
+  "actions": {
+    "Create_new_folder": {
+      "inputs": {
+        "host": {
+          "apiId": "/providers/Microsoft.PowerApps/apis/shared_onedriveforbusiness",
+          "connectionName": "shared_onedriveforbusiness",
+          "operationId": "CreateFile"
+        },
+        "parameters": {
+          "folderPath": "/",
+          "name": "PROOF-OF-CONCEPT-NEW-FILE.docx",
+          "body": " "
+        }
+      },
+      "runAfter": {
+        
+      },
+      "type": "OpenApiConnection",
+      "runtimeConfiguration": {
+        "contentTransfer": {
+          "transferMode": "Chunked"
+        }
+      }
+    }
+  },
+  "contentVersion": "undefined",
+  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+  "triggers": {
+    "Recurrence": {
+      "recurrence": {
+        "frequency": "Month",
+        "startTime": "2028-12-31T23:59:59Z",
+        "interval": 5
+      },
+      "type": "Recurrence"
+    }
+  },
+  "parameters": {
+    "$connections": {
+      "defaultValue": {
+        
+      },
+      "type": "Object"
+    },
+    "$authentication": {
+      "defaultValue": {
+        
+      },
+      "type": "SecureObject"
+    }
+  }
+}
+}

@@ -1,0 +1,1088 @@
+[
+    {
+        "id": "af1dfe27-f7da-4d94-99ba-2e2ced790801",
+        "createdDateTime": "2024-07-09T16:12:29Z",
+        "userDisplayName": "TA0006 - T1602.002 - A2",
+        "userPrincipalName": "ta0006-t1606.002-a2@detectabil.it",
+        "userId": "9f125f36-8496-46a4-a547-6b92be589ea4",
+        "appId": "4765445b-32c6-49b0-83e6-1d93765276ca",
+        "appDisplayName": "OfficeHome",
+        "ipAddress": "46.166.129.4",
+        "ipAddressFromResourceProvider": null,
+        "clientAppUsed": "Browser",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101 Firefox/127.0",
+        "correlationId": "937b99dc-82a6-4a76-aae8-8c67cdad166b",
+        "conditionalAccessStatus": "notApplied",
+        "originalRequestId": "521637f4-b1c2-4db1-9f23-94f4b39a4400",
+        "isInteractive": true,
+        "tokenIssuerName": "",
+        "tokenIssuerType": "AzureAD",
+        "clientCredentialType": "none",
+        "processingTimeInMilliseconds": 106,
+        "riskDetail": "none",
+        "riskLevelAggregated": "none",
+        "riskLevelDuringSignIn": "none",
+        "riskState": "none",
+        "riskEventTypes_v2": [],
+        "resourceDisplayName": "OfficeHome",
+        "resourceId": "4765445b-32c6-49b0-83e6-1d93765276ca",
+        "resourceTenantId": "801d2213-4df9-466e-aeff-aef47206f9ce",
+        "homeTenantId": "801d2213-4df9-466e-aeff-aef47206f9ce",
+        "homeTenantName": "",
+        "authenticationMethodsUsed": [],
+        "authenticationRequirement": "singleFactorAuthentication",
+        "signInIdentifier": "",
+        "signInIdentifierType": null,
+        "servicePrincipalName": null,
+        "signInEventTypes": [
+            "interactiveUser"
+        ],
+        "servicePrincipalId": "",
+        "federatedCredentialId": null,
+        "userType": "member",
+        "flaggedForReview": false,
+        "isTenantRestricted": false,
+        "autonomousSystemNumber": 43350,
+        "crossTenantAccessType": "none",
+        "servicePrincipalCredentialKeyId": null,
+        "servicePrincipalCredentialThumbprint": "",
+        "uniqueTokenIdentifier": "J_4dr9r3lE2Zui4s7XkIAQ",
+        "incomingTokenType": "saml11",
+        "authenticationProtocol": "none",
+        "resourceServicePrincipalId": "",
+        "signInTokenProtectionStatus": "unbound",
+        "originalTransferMethod": "none",
+        "isThroughGlobalSecureAccess": false,
+        "globalSecureAccessIpAddress": "",
+        "authenticationAppDeviceDetails": null,
+        "status": {
+            "errorCode": 0,
+            "failureReason": "Other.",
+            "additionalDetails": "MFA requirement satisfied by claim provided by external provider"
+        },
+        "deviceDetail": {
+            "deviceId": "",
+            "displayName": "",
+            "operatingSystem": "Windows10",
+            "browser": "Firefox 127.0",
+            "isCompliant": false,
+            "isManaged": false,
+            "trustType": ""
+        },
+        "location": {
+            "city": "Roosendaal",
+            "state": "Noord-Brabant",
+            "countryOrRegion": "NL",
+            "geoCoordinates": {
+                "altitude": null,
+                "latitude": 51.53331,
+                "longitude": 4.45921
+            }
+        },
+        "mfaDetail": {
+            "authMethod": null,
+            "authDetail": null
+        },
+        "appliedConditionalAccessPolicies": [],
+        "authenticationContextClassReferences": [],
+        "authenticationProcessingDetails": [
+            {
+                "key": "Federation certificate thumbprint",
+                "value": "EF332FA10DC98F5ED86A29FFF54414D048FB86D2"
+            },
+            {
+                "key": "Root Key Type",
+                "value": "Unknown"
+            }
+        ],
+        "networkLocationDetails": [],
+        "authenticationDetails": [],
+        "authenticationRequirementPolicies": [],
+        "sessionLifetimePolicies": [],
+        "privateLinkDetails": {
+            "policyId": "",
+            "policyName": "",
+            "resourceId": "",
+            "policyTenantId": ""
+        },
+        "appliedEventListeners": [],
+        "authenticationAppPolicyEvaluationDetails": [],
+        "managedServiceIdentity": {
+            "msiType": "none",
+            "associatedResourceId": null,
+            "federatedTokenId": null,
+            "federatedTokenIssuer": null
+        },
+        "conditionalAccessAudiences": [
+            {
+                "applicationId": "4765445b-32c6-49b0-83e6-1d93765276ca"
+            }
+        ]
+    },
+    {
+        "id": "dbcb972a-29bf-4be0-99b8-6f9b9f553d00",
+        "createdDateTime": "2024-07-09T16:12:29Z",
+        "userDisplayName": "TA0006 - T1602.002 - A2",
+        "userPrincipalName": "ta0006-t1606.002-a2@detectabil.it",
+        "userId": "9f125f36-8496-46a4-a547-6b92be589ea4",
+        "appId": "9ea1ad79-fdb6-4f9a-8bc3-2b70f96e34c7",
+        "appDisplayName": "Bing",
+        "ipAddress": "46.166.129.4",
+        "ipAddressFromResourceProvider": null,
+        "clientAppUsed": "Browser",
+        "userAgent": "",
+        "correlationId": "ae458fc8-6c83-4779-9270-832bcf616d4c",
+        "conditionalAccessStatus": "notApplied",
+        "originalRequestId": "",
+        "isInteractive": false,
+        "tokenIssuerName": "",
+        "tokenIssuerType": "AzureAD",
+        "clientCredentialType": "clientAssertion",
+        "processingTimeInMilliseconds": 58,
+        "riskDetail": "none",
+        "riskLevelAggregated": "none",
+        "riskLevelDuringSignIn": "none",
+        "riskState": "none",
+        "riskEventTypes_v2": [],
+        "resourceDisplayName": "Bing",
+        "resourceId": "9ea1ad79-fdb6-4f9a-8bc3-2b70f96e34c7",
+        "resourceTenantId": "801d2213-4df9-466e-aeff-aef47206f9ce",
+        "homeTenantId": "801d2213-4df9-466e-aeff-aef47206f9ce",
+        "homeTenantName": "",
+        "authenticationMethodsUsed": [],
+        "authenticationRequirement": "singleFactorAuthentication",
+        "signInIdentifier": "",
+        "signInIdentifierType": null,
+        "servicePrincipalName": null,
+        "signInEventTypes": [
+            "nonInteractiveUser"
+        ],
+        "servicePrincipalId": "",
+        "federatedCredentialId": null,
+        "userType": "member",
+        "flaggedForReview": false,
+        "isTenantRestricted": false,
+        "autonomousSystemNumber": 43350,
+        "crossTenantAccessType": "none",
+        "servicePrincipalCredentialKeyId": null,
+        "servicePrincipalCredentialThumbprint": "",
+        "uniqueTokenIdentifier": "KpfL278p4EuZuG-bn1U9AA",
+        "incomingTokenType": "none",
+        "authenticationProtocol": "none",
+        "resourceServicePrincipalId": "1a3ef578-ed4c-43c9-bec9-3f3a27a6f4bb",
+        "signInTokenProtectionStatus": "unbound",
+        "originalTransferMethod": "none",
+        "isThroughGlobalSecureAccess": false,
+        "globalSecureAccessIpAddress": "",
+        "authenticationAppDeviceDetails": null,
+        "status": {
+            "errorCode": 0,
+            "failureReason": "Other.",
+            "additionalDetails": "MFA requirement satisfied by claim in the token"
+        },
+        "deviceDetail": {
+            "deviceId": "",
+            "displayName": "",
+            "operatingSystem": "Windows10",
+            "browser": "Rich Client 4.61.0.0",
+            "isCompliant": false,
+            "isManaged": false,
+            "trustType": ""
+        },
+        "location": {
+            "city": "Roosendaal",
+            "state": "Noord-Brabant",
+            "countryOrRegion": "NL",
+            "geoCoordinates": {
+                "altitude": null,
+                "latitude": 51.53331,
+                "longitude": 4.45921
+            }
+        },
+        "mfaDetail": {
+            "authMethod": null,
+            "authDetail": null
+        },
+        "appliedConditionalAccessPolicies": [],
+        "authenticationContextClassReferences": [],
+        "authenticationProcessingDetails": [
+            {
+                "key": "Root Key Type",
+                "value": "Unknown"
+            },
+            {
+                "key": "Oauth Scope Info",
+                "value": "[\"Calendars.Read\",\"Calendars.Read.Shared\",\"Channel.ReadBasic.All\",\"Directory.Read.All\",\"EduAssignments.Read\",\"EduRoster.ReadBasic\",\"Files.ReadWrite.All\",\"Group.Read.All\",\"People.Read\",\"Presence.Read.All\",\"Sites.Read.All\",\"Sites.ReadWrite.All\",\"Team.ReadBasic.All\",\"User.Read\",\"User.Read.All\"]"
+            }
+        ],
+        "networkLocationDetails": [],
+        "authenticationDetails": [],
+        "authenticationRequirementPolicies": [],
+        "sessionLifetimePolicies": [],
+        "privateLinkDetails": {
+            "policyId": "",
+            "policyName": "",
+            "resourceId": "",
+            "policyTenantId": ""
+        },
+        "appliedEventListeners": [],
+        "authenticationAppPolicyEvaluationDetails": [],
+        "managedServiceIdentity": {
+            "msiType": "none",
+            "associatedResourceId": null,
+            "federatedTokenId": null,
+            "federatedTokenIssuer": null
+        },
+        "conditionalAccessAudiences": [
+            {
+                "applicationId": "9ea1ad79-fdb6-4f9a-8bc3-2b70f96e34c7"
+            }
+        ]
+    },
+    {
+        "id": "6933f145-16b8-4b12-b5ac-dec8158ec700",
+        "createdDateTime": "2024-07-09T16:12:29Z",
+        "userDisplayName": "TA0006 - T1602.002 - A2",
+        "userPrincipalName": "ta0006-t1606.002-a2@detectabil.it",
+        "userId": "9f125f36-8496-46a4-a547-6b92be589ea4",
+        "appId": "4765445b-32c6-49b0-83e6-1d93765276ca",
+        "appDisplayName": "OfficeHome",
+        "ipAddress": "46.166.129.4",
+        "ipAddressFromResourceProvider": null,
+        "clientAppUsed": "Browser",
+        "userAgent": "",
+        "correlationId": "b41ed4c9-c1e0-4db7-9c31-7c3db493c262",
+        "conditionalAccessStatus": "notApplied",
+        "originalRequestId": "",
+        "isInteractive": false,
+        "tokenIssuerName": "",
+        "tokenIssuerType": "AzureAD",
+        "clientCredentialType": "clientAssertion",
+        "processingTimeInMilliseconds": 60,
+        "riskDetail": "none",
+        "riskLevelAggregated": "none",
+        "riskLevelDuringSignIn": "none",
+        "riskState": "none",
+        "riskEventTypes_v2": [],
+        "resourceDisplayName": "Bing",
+        "resourceId": "9ea1ad79-fdb6-4f9a-8bc3-2b70f96e34c7",
+        "resourceTenantId": "801d2213-4df9-466e-aeff-aef47206f9ce",
+        "homeTenantId": "801d2213-4df9-466e-aeff-aef47206f9ce",
+        "homeTenantName": "",
+        "authenticationMethodsUsed": [],
+        "authenticationRequirement": "singleFactorAuthentication",
+        "signInIdentifier": "",
+        "signInIdentifierType": null,
+        "servicePrincipalName": null,
+        "signInEventTypes": [
+            "nonInteractiveUser"
+        ],
+        "servicePrincipalId": "",
+        "federatedCredentialId": null,
+        "userType": "member",
+        "flaggedForReview": false,
+        "isTenantRestricted": false,
+        "autonomousSystemNumber": 43350,
+        "crossTenantAccessType": "none",
+        "servicePrincipalCredentialKeyId": null,
+        "servicePrincipalCredentialThumbprint": "",
+        "uniqueTokenIdentifier": "RfEzabgWEku1rN7IFY7HAA",
+        "incomingTokenType": "primaryRefreshToken",
+        "authenticationProtocol": "none",
+        "resourceServicePrincipalId": "1a3ef578-ed4c-43c9-bec9-3f3a27a6f4bb",
+        "signInTokenProtectionStatus": "unbound",
+        "originalTransferMethod": "none",
+        "isThroughGlobalSecureAccess": false,
+        "globalSecureAccessIpAddress": "",
+        "authenticationAppDeviceDetails": null,
+        "status": {
+            "errorCode": 0,
+            "failureReason": "Other.",
+            "additionalDetails": "MFA requirement satisfied by claim in the token"
+        },
+        "deviceDetail": {
+            "deviceId": "",
+            "displayName": "",
+            "operatingSystem": "Windows10",
+            "browser": "Rich Client 4.61.3.0",
+            "isCompliant": false,
+            "isManaged": false,
+            "trustType": ""
+        },
+        "location": {
+            "city": "Roosendaal",
+            "state": "Noord-Brabant",
+            "countryOrRegion": "NL",
+            "geoCoordinates": {
+                "altitude": null,
+                "latitude": 51.53331,
+                "longitude": 4.45921
+            }
+        },
+        "mfaDetail": {
+            "authMethod": null,
+            "authDetail": null
+        },
+        "appliedConditionalAccessPolicies": [],
+        "authenticationContextClassReferences": [],
+        "authenticationProcessingDetails": [
+            {
+                "key": "Root Key Type",
+                "value": "Unknown"
+            },
+            {
+                "key": "Oauth Scope Info",
+                "value": "[\"Acronym.Read.All\",\"Bookmark.Read.All\",\"Building.Read.All\",\"Calendar.Read.All\",\"Conversations.Read.All\",\"Files.Read.All\",\"FloorPlan.Read.All\",\"Group.Read.All\",\"People.Read.All\",\"QnA.Read.All\",\"Sites.Read.All\",\"User.Read.All\"]"
+            }
+        ],
+        "networkLocationDetails": [],
+        "authenticationDetails": [],
+        "authenticationRequirementPolicies": [],
+        "sessionLifetimePolicies": [],
+        "privateLinkDetails": {
+            "policyId": "",
+            "policyName": "",
+            "resourceId": "",
+            "policyTenantId": ""
+        },
+        "appliedEventListeners": [],
+        "authenticationAppPolicyEvaluationDetails": [],
+        "managedServiceIdentity": {
+            "msiType": "none",
+            "associatedResourceId": null,
+            "federatedTokenId": null,
+            "federatedTokenIssuer": null
+        },
+        "conditionalAccessAudiences": [
+            {
+                "applicationId": "4765445b-32c6-49b0-83e6-1d93765276ca"
+            },
+            {
+                "applicationId": "9ea1ad79-fdb6-4f9a-8bc3-2b70f96e34c7"
+            }
+        ]
+    },
+    {
+        "id": "28e9484d-9371-44f9-bc93-c328ec7cda00",
+        "createdDateTime": "2024-07-09T16:12:29Z",
+        "userDisplayName": "TA0006 - T1602.002 - A2",
+        "userPrincipalName": "ta0006-t1606.002-a2@detectabil.it",
+        "userId": "9f125f36-8496-46a4-a547-6b92be589ea4",
+        "appId": "4765445b-32c6-49b0-83e6-1d93765276ca",
+        "appDisplayName": "OfficeHome",
+        "ipAddress": "46.166.129.4",
+        "ipAddressFromResourceProvider": null,
+        "clientAppUsed": "Browser",
+        "userAgent": "",
+        "correlationId": "f35d8204-9dd0-462b-b77b-685d5772df47",
+        "conditionalAccessStatus": "notApplied",
+        "originalRequestId": "",
+        "isInteractive": false,
+        "tokenIssuerName": "",
+        "tokenIssuerType": "AzureAD",
+        "clientCredentialType": "clientAssertion",
+        "processingTimeInMilliseconds": 61,
+        "riskDetail": "none",
+        "riskLevelAggregated": "none",
+        "riskLevelDuringSignIn": "none",
+        "riskState": "none",
+        "riskEventTypes_v2": [],
+        "resourceDisplayName": "OfficeHome",
+        "resourceId": "4765445b-32c6-49b0-83e6-1d93765276ca",
+        "resourceTenantId": "801d2213-4df9-466e-aeff-aef47206f9ce",
+        "homeTenantId": "801d2213-4df9-466e-aeff-aef47206f9ce",
+        "homeTenantName": "",
+        "authenticationMethodsUsed": [],
+        "authenticationRequirement": "singleFactorAuthentication",
+        "signInIdentifier": "",
+        "signInIdentifierType": null,
+        "servicePrincipalName": null,
+        "signInEventTypes": [
+            "nonInteractiveUser"
+        ],
+        "servicePrincipalId": "",
+        "federatedCredentialId": null,
+        "userType": "member",
+        "flaggedForReview": false,
+        "isTenantRestricted": false,
+        "autonomousSystemNumber": 43350,
+        "crossTenantAccessType": "none",
+        "servicePrincipalCredentialKeyId": null,
+        "servicePrincipalCredentialThumbprint": "",
+        "uniqueTokenIdentifier": "TUjpKHGT-US8k8Mo7HzaAA",
+        "incomingTokenType": "none",
+        "authenticationProtocol": "none",
+        "resourceServicePrincipalId": "",
+        "signInTokenProtectionStatus": "unbound",
+        "originalTransferMethod": "none",
+        "isThroughGlobalSecureAccess": false,
+        "globalSecureAccessIpAddress": "",
+        "authenticationAppDeviceDetails": null,
+        "status": {
+            "errorCode": 0,
+            "failureReason": "Other.",
+            "additionalDetails": "MFA requirement satisfied by claim in the token"
+        },
+        "deviceDetail": {
+            "deviceId": "",
+            "displayName": "",
+            "operatingSystem": "Windows10",
+            "browser": "Rich Client 4.61.3.0",
+            "isCompliant": false,
+            "isManaged": false,
+            "trustType": ""
+        },
+        "location": {
+            "city": "Roosendaal",
+            "state": "Noord-Brabant",
+            "countryOrRegion": "NL",
+            "geoCoordinates": {
+                "altitude": null,
+                "latitude": 51.53331,
+                "longitude": 4.45921
+            }
+        },
+        "mfaDetail": {
+            "authMethod": null,
+            "authDetail": null
+        },
+        "appliedConditionalAccessPolicies": [],
+        "authenticationContextClassReferences": [],
+        "authenticationProcessingDetails": [
+            {
+                "key": "Root Key Type",
+                "value": "Unknown"
+            },
+            {
+                "key": "Oauth Scope Info",
+                "value": "[\"OfficeHome.All\"]"
+            }
+        ],
+        "networkLocationDetails": [],
+        "authenticationDetails": [],
+        "authenticationRequirementPolicies": [],
+        "sessionLifetimePolicies": [],
+        "privateLinkDetails": {
+            "policyId": "",
+            "policyName": "",
+            "resourceId": "",
+            "policyTenantId": ""
+        },
+        "appliedEventListeners": [],
+        "authenticationAppPolicyEvaluationDetails": [],
+        "managedServiceIdentity": {
+            "msiType": "none",
+            "associatedResourceId": null,
+            "federatedTokenId": null,
+            "federatedTokenIssuer": null
+        },
+        "conditionalAccessAudiences": [
+            {
+                "applicationId": "4765445b-32c6-49b0-83e6-1d93765276ca"
+            }
+        ]
+    },
+    {
+        "id": "521637f4-b1c2-4db1-9f23-94f4299b4400",
+        "createdDateTime": "2024-07-09T16:12:31Z",
+        "userDisplayName": "TA0006 - T1602.002 - A2",
+        "userPrincipalName": "ta0006-t1606.002-a2@detectabil.it",
+        "userId": "9f125f36-8496-46a4-a547-6b92be589ea4",
+        "appId": "4765445b-32c6-49b0-83e6-1d93765276ca",
+        "appDisplayName": "OfficeHome",
+        "ipAddress": "46.166.129.4",
+        "ipAddressFromResourceProvider": null,
+        "clientAppUsed": "Browser",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101 Firefox/127.0",
+        "correlationId": "0017de3e-69b6-466d-9136-5f4097686ef7",
+        "conditionalAccessStatus": "notApplied",
+        "originalRequestId": "",
+        "isInteractive": false,
+        "tokenIssuerName": "",
+        "tokenIssuerType": "AzureAD",
+        "clientCredentialType": "none",
+        "processingTimeInMilliseconds": 55,
+        "riskDetail": "none",
+        "riskLevelAggregated": "none",
+        "riskLevelDuringSignIn": "none",
+        "riskState": "none",
+        "riskEventTypes_v2": [],
+        "resourceDisplayName": "Office 365 Exchange Online",
+        "resourceId": "00000002-0000-0ff1-ce00-000000000000",
+        "resourceTenantId": "801d2213-4df9-466e-aeff-aef47206f9ce",
+        "homeTenantId": "801d2213-4df9-466e-aeff-aef47206f9ce",
+        "homeTenantName": "",
+        "authenticationMethodsUsed": [],
+        "authenticationRequirement": "singleFactorAuthentication",
+        "signInIdentifier": "",
+        "signInIdentifierType": null,
+        "servicePrincipalName": null,
+        "signInEventTypes": [
+            "nonInteractiveUser"
+        ],
+        "servicePrincipalId": "",
+        "federatedCredentialId": null,
+        "userType": "member",
+        "flaggedForReview": false,
+        "isTenantRestricted": false,
+        "autonomousSystemNumber": 43350,
+        "crossTenantAccessType": "none",
+        "servicePrincipalCredentialKeyId": null,
+        "servicePrincipalCredentialThumbprint": "",
+        "uniqueTokenIdentifier": "9DcWUsKxsU2fI5T0KZtEAA",
+        "incomingTokenType": "primaryRefreshToken",
+        "authenticationProtocol": "none",
+        "resourceServicePrincipalId": "d955f2eb-bc34-46a3-8e59-5b8fb8b28662",
+        "signInTokenProtectionStatus": "unbound",
+        "originalTransferMethod": "none",
+        "isThroughGlobalSecureAccess": false,
+        "globalSecureAccessIpAddress": "",
+        "authenticationAppDeviceDetails": null,
+        "status": {
+            "errorCode": 0,
+            "failureReason": "Other.",
+            "additionalDetails": "MFA requirement satisfied by claim in the token"
+        },
+        "deviceDetail": {
+            "deviceId": "",
+            "displayName": "",
+            "operatingSystem": "Windows10",
+            "browser": "Firefox 127.0",
+            "isCompliant": false,
+            "isManaged": false,
+            "trustType": ""
+        },
+        "location": {
+            "city": "Roosendaal",
+            "state": "Noord-Brabant",
+            "countryOrRegion": "NL",
+            "geoCoordinates": {
+                "altitude": null,
+                "latitude": 51.53331,
+                "longitude": 4.45921
+            }
+        },
+        "mfaDetail": {
+            "authMethod": null,
+            "authDetail": null
+        },
+        "appliedConditionalAccessPolicies": [],
+        "authenticationContextClassReferences": [],
+        "authenticationProcessingDetails": [
+            {
+                "key": "Root Key Type",
+                "value": "Unknown"
+            },
+            {
+                "key": "Oauth Scope Info",
+                "value": "[\"Calendars.Read\",\"Calendars.ReadWrite\",\"OWA.AccessAsUser.All\",\"Place.Read.All\",\"SubstrateSearch-Internal.ReadWrite\",\"Files.ReadWrite.Shared\"]"
+            }
+        ],
+        "networkLocationDetails": [],
+        "authenticationDetails": [],
+        "authenticationRequirementPolicies": [],
+        "sessionLifetimePolicies": [],
+        "privateLinkDetails": {
+            "policyId": "",
+            "policyName": "",
+            "resourceId": "",
+            "policyTenantId": ""
+        },
+        "appliedEventListeners": [],
+        "authenticationAppPolicyEvaluationDetails": [],
+        "managedServiceIdentity": {
+            "msiType": "none",
+            "associatedResourceId": null,
+            "federatedTokenId": null,
+            "federatedTokenIssuer": null
+        },
+        "conditionalAccessAudiences": [
+            {
+                "applicationId": "00000002-0000-0ff1-ce00-000000000000"
+            }
+        ]
+    },
+    {
+        "id": "17bf347e-b789-4ec8-9886-5ff4d232b200",
+        "createdDateTime": "2024-07-09T16:12:31Z",
+        "userDisplayName": "TA0006 - T1602.002 - A2",
+        "userPrincipalName": "ta0006-t1606.002-a2@detectabil.it",
+        "userId": "9f125f36-8496-46a4-a547-6b92be589ea4",
+        "appId": "4765445b-32c6-49b0-83e6-1d93765276ca",
+        "appDisplayName": "OfficeHome",
+        "ipAddress": "46.166.129.4",
+        "ipAddressFromResourceProvider": null,
+        "clientAppUsed": "Browser",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101 Firefox/127.0",
+        "correlationId": "3fec23a7-062d-4b23-98fc-ddb4613b05d3",
+        "conditionalAccessStatus": "notApplied",
+        "originalRequestId": "",
+        "isInteractive": false,
+        "tokenIssuerName": "",
+        "tokenIssuerType": "AzureAD",
+        "clientCredentialType": "none",
+        "processingTimeInMilliseconds": 85,
+        "riskDetail": "none",
+        "riskLevelAggregated": "none",
+        "riskLevelDuringSignIn": "none",
+        "riskState": "none",
+        "riskEventTypes_v2": [],
+        "resourceDisplayName": "Office 365 SharePoint Online",
+        "resourceId": "00000003-0000-0ff1-ce00-000000000000",
+        "resourceTenantId": "801d2213-4df9-466e-aeff-aef47206f9ce",
+        "homeTenantId": "801d2213-4df9-466e-aeff-aef47206f9ce",
+        "homeTenantName": "",
+        "authenticationMethodsUsed": [],
+        "authenticationRequirement": "singleFactorAuthentication",
+        "signInIdentifier": "",
+        "signInIdentifierType": null,
+        "servicePrincipalName": null,
+        "signInEventTypes": [
+            "nonInteractiveUser"
+        ],
+        "servicePrincipalId": "",
+        "federatedCredentialId": null,
+        "userType": "member",
+        "flaggedForReview": false,
+        "isTenantRestricted": false,
+        "autonomousSystemNumber": 43350,
+        "crossTenantAccessType": "none",
+        "servicePrincipalCredentialKeyId": null,
+        "servicePrincipalCredentialThumbprint": "",
+        "uniqueTokenIdentifier": "fjS_F4m3yE6Yhl_00jKyAA",
+        "incomingTokenType": "primaryRefreshToken",
+        "authenticationProtocol": "none",
+        "resourceServicePrincipalId": "ed233a16-916e-47fb-94b9-1647e798f6bc",
+        "signInTokenProtectionStatus": "unbound",
+        "originalTransferMethod": "none",
+        "isThroughGlobalSecureAccess": false,
+        "globalSecureAccessIpAddress": "",
+        "authenticationAppDeviceDetails": null,
+        "status": {
+            "errorCode": 0,
+            "failureReason": "Other.",
+            "additionalDetails": "MFA requirement satisfied by claim in the token"
+        },
+        "deviceDetail": {
+            "deviceId": "",
+            "displayName": "",
+            "operatingSystem": "Windows10",
+            "browser": "Firefox 127.0",
+            "isCompliant": false,
+            "isManaged": false,
+            "trustType": ""
+        },
+        "location": {
+            "city": "Roosendaal",
+            "state": "Noord-Brabant",
+            "countryOrRegion": "NL",
+            "geoCoordinates": {
+                "altitude": null,
+                "latitude": 51.53331,
+                "longitude": 4.45921
+            }
+        },
+        "mfaDetail": {
+            "authMethod": null,
+            "authDetail": null
+        },
+        "appliedConditionalAccessPolicies": [],
+        "authenticationContextClassReferences": [],
+        "authenticationProcessingDetails": [
+            {
+                "key": "Root Key Type",
+                "value": "Unknown"
+            },
+            {
+                "key": "Oauth Scope Info",
+                "value": "[\"Files.ReadWrite.All\",\"Sites.FullControl.All\",\"User.Read.All\"]"
+            }
+        ],
+        "networkLocationDetails": [],
+        "authenticationDetails": [],
+        "authenticationRequirementPolicies": [],
+        "sessionLifetimePolicies": [],
+        "privateLinkDetails": {
+            "policyId": "",
+            "policyName": "",
+            "resourceId": "",
+            "policyTenantId": ""
+        },
+        "appliedEventListeners": [],
+        "authenticationAppPolicyEvaluationDetails": [],
+        "managedServiceIdentity": {
+            "msiType": "none",
+            "associatedResourceId": null,
+            "federatedTokenId": null,
+            "federatedTokenIssuer": null
+        },
+        "conditionalAccessAudiences": [
+            {
+                "applicationId": "00000003-0000-0ff1-ce00-000000000000"
+            }
+        ]
+    },
+    {
+        "id": "d155cefe-1124-4876-a2c0-bfedfd3dd700",
+        "createdDateTime": "2024-07-09T16:12:31Z",
+        "userDisplayName": "TA0006 - T1602.002 - A2",
+        "userPrincipalName": "ta0006-t1606.002-a2@detectabil.it",
+        "userId": "9f125f36-8496-46a4-a547-6b92be589ea4",
+        "appId": "4765445b-32c6-49b0-83e6-1d93765276ca",
+        "appDisplayName": "OfficeHome",
+        "ipAddress": "46.166.129.4",
+        "ipAddressFromResourceProvider": null,
+        "clientAppUsed": "Browser",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101 Firefox/127.0",
+        "correlationId": "c23cbe2c-73b4-4812-86e6-82d850670948",
+        "conditionalAccessStatus": "notApplied",
+        "originalRequestId": "",
+        "isInteractive": false,
+        "tokenIssuerName": "",
+        "tokenIssuerType": "AzureAD",
+        "clientCredentialType": "none",
+        "processingTimeInMilliseconds": 69,
+        "riskDetail": "none",
+        "riskLevelAggregated": "none",
+        "riskLevelDuringSignIn": "none",
+        "riskState": "none",
+        "riskEventTypes_v2": [],
+        "resourceDisplayName": "Office 365 SharePoint Online",
+        "resourceId": "00000003-0000-0ff1-ce00-000000000000",
+        "resourceTenantId": "801d2213-4df9-466e-aeff-aef47206f9ce",
+        "homeTenantId": "801d2213-4df9-466e-aeff-aef47206f9ce",
+        "homeTenantName": "",
+        "authenticationMethodsUsed": [],
+        "authenticationRequirement": "singleFactorAuthentication",
+        "signInIdentifier": "",
+        "signInIdentifierType": null,
+        "servicePrincipalName": null,
+        "signInEventTypes": [
+            "nonInteractiveUser"
+        ],
+        "servicePrincipalId": "",
+        "federatedCredentialId": null,
+        "userType": "member",
+        "flaggedForReview": false,
+        "isTenantRestricted": false,
+        "autonomousSystemNumber": 43350,
+        "crossTenantAccessType": "none",
+        "servicePrincipalCredentialKeyId": null,
+        "servicePrincipalCredentialThumbprint": "",
+        "uniqueTokenIdentifier": "_s5V0SQRdkiiwL_t_T3XAA",
+        "incomingTokenType": "primaryRefreshToken",
+        "authenticationProtocol": "none",
+        "resourceServicePrincipalId": "ed233a16-916e-47fb-94b9-1647e798f6bc",
+        "signInTokenProtectionStatus": "unbound",
+        "originalTransferMethod": "none",
+        "isThroughGlobalSecureAccess": false,
+        "globalSecureAccessIpAddress": "",
+        "authenticationAppDeviceDetails": null,
+        "status": {
+            "errorCode": 0,
+            "failureReason": "Other.",
+            "additionalDetails": "MFA requirement satisfied by claim in the token"
+        },
+        "deviceDetail": {
+            "deviceId": "",
+            "displayName": "",
+            "operatingSystem": "Windows10",
+            "browser": "Firefox 127.0",
+            "isCompliant": false,
+            "isManaged": false,
+            "trustType": ""
+        },
+        "location": {
+            "city": "Roosendaal",
+            "state": "Noord-Brabant",
+            "countryOrRegion": "NL",
+            "geoCoordinates": {
+                "altitude": null,
+                "latitude": 51.53331,
+                "longitude": 4.45921
+            }
+        },
+        "mfaDetail": {
+            "authMethod": null,
+            "authDetail": null
+        },
+        "appliedConditionalAccessPolicies": [],
+        "authenticationContextClassReferences": [],
+        "authenticationProcessingDetails": [
+            {
+                "key": "Root Key Type",
+                "value": "Unknown"
+            },
+            {
+                "key": "Oauth Scope Info",
+                "value": "[\"Files.ReadWrite.All\",\"Sites.FullControl.All\",\"User.Read.All\"]"
+            }
+        ],
+        "networkLocationDetails": [],
+        "authenticationDetails": [],
+        "authenticationRequirementPolicies": [],
+        "sessionLifetimePolicies": [],
+        "privateLinkDetails": {
+            "policyId": "",
+            "policyName": "",
+            "resourceId": "",
+            "policyTenantId": ""
+        },
+        "appliedEventListeners": [],
+        "authenticationAppPolicyEvaluationDetails": [],
+        "managedServiceIdentity": {
+            "msiType": "none",
+            "associatedResourceId": null,
+            "federatedTokenId": null,
+            "federatedTokenIssuer": null
+        },
+        "conditionalAccessAudiences": [
+            {
+                "applicationId": "00000003-0000-0ff1-ce00-000000000000"
+            }
+        ]
+    },
+    {
+        "id": "7a4da2c7-0c51-4559-8dc5-af6e5ed3bd00",
+        "createdDateTime": "2024-07-09T16:12:31Z",
+        "userDisplayName": "TA0006 - T1602.002 - A2",
+        "userPrincipalName": "ta0006-t1606.002-a2@detectabil.it",
+        "userId": "9f125f36-8496-46a4-a547-6b92be589ea4",
+        "appId": "4765445b-32c6-49b0-83e6-1d93765276ca",
+        "appDisplayName": "OfficeHome",
+        "ipAddress": "46.166.129.4",
+        "ipAddressFromResourceProvider": null,
+        "clientAppUsed": "Browser",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101 Firefox/127.0",
+        "correlationId": "c2eda2e2-3050-4c6e-9ad5-71043a0574a0",
+        "conditionalAccessStatus": "notApplied",
+        "originalRequestId": "",
+        "isInteractive": false,
+        "tokenIssuerName": "",
+        "tokenIssuerType": "AzureAD",
+        "clientCredentialType": "none",
+        "processingTimeInMilliseconds": 107,
+        "riskDetail": "none",
+        "riskLevelAggregated": "none",
+        "riskLevelDuringSignIn": "none",
+        "riskState": "none",
+        "riskEventTypes_v2": [],
+        "resourceDisplayName": "OfficeHome",
+        "resourceId": "4765445b-32c6-49b0-83e6-1d93765276ca",
+        "resourceTenantId": "801d2213-4df9-466e-aeff-aef47206f9ce",
+        "homeTenantId": "801d2213-4df9-466e-aeff-aef47206f9ce",
+        "homeTenantName": "",
+        "authenticationMethodsUsed": [],
+        "authenticationRequirement": "singleFactorAuthentication",
+        "signInIdentifier": "",
+        "signInIdentifierType": null,
+        "servicePrincipalName": null,
+        "signInEventTypes": [
+            "nonInteractiveUser"
+        ],
+        "servicePrincipalId": "",
+        "federatedCredentialId": null,
+        "userType": "member",
+        "flaggedForReview": false,
+        "isTenantRestricted": false,
+        "autonomousSystemNumber": 43350,
+        "crossTenantAccessType": "none",
+        "servicePrincipalCredentialKeyId": null,
+        "servicePrincipalCredentialThumbprint": "",
+        "uniqueTokenIdentifier": "x6JNelEMWUWNxa9uXtO9AA",
+        "incomingTokenType": "none",
+        "authenticationProtocol": "none",
+        "resourceServicePrincipalId": "",
+        "signInTokenProtectionStatus": "unbound",
+        "originalTransferMethod": "none",
+        "isThroughGlobalSecureAccess": false,
+        "globalSecureAccessIpAddress": "",
+        "authenticationAppDeviceDetails": null,
+        "status": {
+            "errorCode": 0,
+            "failureReason": "Other.",
+            "additionalDetails": "MFA requirement satisfied by claim in the token"
+        },
+        "deviceDetail": {
+            "deviceId": "",
+            "displayName": "",
+            "operatingSystem": "Windows10",
+            "browser": "Firefox 127.0",
+            "isCompliant": false,
+            "isManaged": false,
+            "trustType": ""
+        },
+        "location": {
+            "city": "Roosendaal",
+            "state": "Noord-Brabant",
+            "countryOrRegion": "NL",
+            "geoCoordinates": {
+                "altitude": null,
+                "latitude": 51.53331,
+                "longitude": 4.45921
+            }
+        },
+        "mfaDetail": {
+            "authMethod": null,
+            "authDetail": null
+        },
+        "appliedConditionalAccessPolicies": [],
+        "authenticationContextClassReferences": [],
+        "authenticationProcessingDetails": [
+            {
+                "key": "Root Key Type",
+                "value": "Unknown"
+            },
+            {
+                "key": "Oauth Scope Info",
+                "value": "[\"OfficeHome.All\"]"
+            }
+        ],
+        "networkLocationDetails": [],
+        "authenticationDetails": [],
+        "authenticationRequirementPolicies": [],
+        "sessionLifetimePolicies": [],
+        "privateLinkDetails": {
+            "policyId": "",
+            "policyName": "",
+            "resourceId": "",
+            "policyTenantId": ""
+        },
+        "appliedEventListeners": [],
+        "authenticationAppPolicyEvaluationDetails": [],
+        "managedServiceIdentity": {
+            "msiType": "none",
+            "associatedResourceId": null,
+            "federatedTokenId": null,
+            "federatedTokenIssuer": null
+        },
+        "conditionalAccessAudiences": [
+            {
+                "applicationId": "4765445b-32c6-49b0-83e6-1d93765276ca"
+            }
+        ]
+    },
+    {
+        "id": "edf7c8fa-c86c-41de-9714-34c856fde100",
+        "createdDateTime": "2024-07-09T16:12:31Z",
+        "userDisplayName": "TA0006 - T1602.002 - A2",
+        "userPrincipalName": "ta0006-t1606.002-a2@detectabil.it",
+        "userId": "9f125f36-8496-46a4-a547-6b92be589ea4",
+        "appId": "9ea1ad79-fdb6-4f9a-8bc3-2b70f96e34c7",
+        "appDisplayName": "Bing",
+        "ipAddress": "46.166.129.4",
+        "ipAddressFromResourceProvider": null,
+        "clientAppUsed": "Browser",
+        "userAgent": "",
+        "correlationId": "ae458fc8-6c83-4779-9270-832bcf616d4c",
+        "conditionalAccessStatus": "notApplied",
+        "originalRequestId": "",
+        "isInteractive": false,
+        "tokenIssuerName": "",
+        "tokenIssuerType": "AzureAD",
+        "clientCredentialType": "clientAssertion",
+        "processingTimeInMilliseconds": 59,
+        "riskDetail": "none",
+        "riskLevelAggregated": "none",
+        "riskLevelDuringSignIn": "none",
+        "riskState": "none",
+        "riskEventTypes_v2": [],
+        "resourceDisplayName": "OCaaS Client Interaction Service",
+        "resourceId": "c2ada927-a9e2-4564-aae2-70775a2fa0af",
+        "resourceTenantId": "801d2213-4df9-466e-aeff-aef47206f9ce",
+        "homeTenantId": "801d2213-4df9-466e-aeff-aef47206f9ce",
+        "homeTenantName": "",
+        "authenticationMethodsUsed": [],
+        "authenticationRequirement": "singleFactorAuthentication",
+        "signInIdentifier": "",
+        "signInIdentifierType": null,
+        "servicePrincipalName": null,
+        "signInEventTypes": [
+            "nonInteractiveUser"
+        ],
+        "servicePrincipalId": "",
+        "federatedCredentialId": null,
+        "userType": "member",
+        "flaggedForReview": false,
+        "isTenantRestricted": false,
+        "autonomousSystemNumber": 43350,
+        "crossTenantAccessType": "none",
+        "servicePrincipalCredentialKeyId": null,
+        "servicePrincipalCredentialThumbprint": "",
+        "uniqueTokenIdentifier": "-sj37WzI3kGXFDTIVv3hAA",
+        "incomingTokenType": "primaryRefreshToken",
+        "authenticationProtocol": "none",
+        "resourceServicePrincipalId": "0da16e04-2b0f-4563-94e6-5fd6f8b8b7bc",
+        "signInTokenProtectionStatus": "unbound",
+        "originalTransferMethod": "none",
+        "isThroughGlobalSecureAccess": false,
+        "globalSecureAccessIpAddress": "",
+        "authenticationAppDeviceDetails": null,
+        "status": {
+            "errorCode": 0,
+            "failureReason": "Other.",
+            "additionalDetails": "MFA requirement satisfied by claim in the token"
+        },
+        "deviceDetail": {
+            "deviceId": "",
+            "displayName": "",
+            "operatingSystem": "Windows10",
+            "browser": "Rich Client 4.61.0.0",
+            "isCompliant": false,
+            "isManaged": false,
+            "trustType": ""
+        },
+        "location": {
+            "city": "Roosendaal",
+            "state": "Noord-Brabant",
+            "countryOrRegion": "NL",
+            "geoCoordinates": {
+                "altitude": null,
+                "latitude": 51.53331,
+                "longitude": 4.45921
+            }
+        },
+        "mfaDetail": {
+            "authMethod": null,
+            "authDetail": null
+        },
+        "appliedConditionalAccessPolicies": [],
+        "authenticationContextClassReferences": [],
+        "authenticationProcessingDetails": [
+            {
+                "key": "Root Key Type",
+                "value": "Unknown"
+            },
+            {
+                "key": "Oauth Scope Info",
+                "value": "[\"UserPolicies.Read\"]"
+            }
+        ],
+        "networkLocationDetails": [],
+        "authenticationDetails": [],
+        "authenticationRequirementPolicies": [],
+        "sessionLifetimePolicies": [],
+        "privateLinkDetails": {
+            "policyId": "",
+            "policyName": "",
+            "resourceId": "",
+            "policyTenantId": ""
+        },
+        "appliedEventListeners": [],
+        "authenticationAppPolicyEvaluationDetails": [],
+        "managedServiceIdentity": {
+            "msiType": "none",
+            "associatedResourceId": null,
+            "federatedTokenId": null,
+            "federatedTokenIssuer": null
+        },
+        "conditionalAccessAudiences": [
+            {
+                "applicationId": "9ea1ad79-fdb6-4f9a-8bc3-2b70f96e34c7"
+            },
+            {
+                "applicationId": "c2ada927-a9e2-4564-aae2-70775a2fa0af"
+            }
+        ]
+    }
+]

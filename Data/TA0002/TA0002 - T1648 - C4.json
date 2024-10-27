@@ -1,0 +1,133 @@
+[
+    {
+      "CreationTime": "1999-12-31T00:02:27",
+      "Id": "4e9cb146-07c5-4389-819f-f3c9bd20a387",
+      "Operation": "PutConnection",
+      "OrganizationId": "40404040-4040-4040-4040-404040404040",
+      "RecordType": 187,
+      "ResultStatus": "Success",
+      "UserKey": "c2d9665a-bbb0-4e3e-8569-8776c2cb6cf9",
+      "UserType": 0,
+      "Version": 1,
+      "Workload": "PowerApps",
+      "ClientIP": "::ffff:198.51.100.7",
+      "ObjectId": "c2d9665a-bbb0-4e3e-8569-8776c2cb6cf9",
+      "UserId": "SamuelO@detectabil.it",
+      "AdditionalInfo": {
+        "environmentName": "Default-801d2213-4df9-466e-aeff-aef47206f9ce",
+        "actionName": "PUT/PROVIDERS/MICROSOFT.POWERAPPS/APIS/CONNECTIONS/.User"
+      },
+      "ResourceId": "shared-office365-b9a6600e-ba5d-4965-9619-eed8de11df04"
+    },
+    {
+      "CreationTime": "1999-12-31T00:03:17",
+      "Id": "533dd330-6695-4a5e-ad15-253e45ba87da",
+      "Operation": "CreateFlow",
+      "OrganizationId": "40404040-4040-4040-4040-404040404040",
+      "RecordType": 30,
+      "ResultStatus": "Success",
+      "UserKey": "c2d9665a-bbb0-4e3e-8569-8776c2cb6cf9",
+      "UserType": 0,
+      "Version": 1,
+      "Workload": "MicrosoftFlow",
+      "ClientIP": "255.255.255.255",
+      "ObjectId": "c2d9665a-bbb0-4e3e-8569-8776c2cb6cf9",
+      "UserId": "SamuelO@detectabil.it",
+      "FlowConnectorNames": "Request, OpenApiConnection",
+      "FlowDetailsUrl": "https://admin.powerplatform.microsoft.com/environments/Default-801d2213-4df9-466e-aeff-aef47206f9ce/flows/0d5ed7d9-bbee-4bb8-a62e-0c889fc720e9/flowDetails",
+      "LicenseDisplayName": "",
+      "SharingPermission": 1,
+      "UserTypeInitiated": 1,
+      "UserUPN": "SamuelO@detectabil.it"
+    },
+    {
+      "CreationTime": "1999-12-31T00:04:00",
+      "Id": "21fec67c-0e63-41c0-452e-08dc6937409a",
+      "Operation": "Send",
+      "OrganizationId": "40404040-4040-4040-4040-404040404040",
+      "RecordType": 2,
+      "ResultStatus": "Succeeded",
+      "UserKey": "100320031988403A",
+      "UserType": 0,
+      "Version": 1,
+      "Workload": "Exchange",
+      "ClientIP": "13.69.71.193",
+      "UserId": "SamuelO@detectabil.it",
+      "AppId": "7ab7862c-4c57-491e-8a45-d52a7e023983",
+      "ClientIPAddress": "13.69.71.193",
+      "ClientInfoString": "Client=REST;;",
+      "ExternalAccess": false,
+      "InternalLogonType": 0,
+      "LogonType": 0,
+      "LogonUserSid": "S-1-5-21-3847099793-823877178-2016750179-7220282",
+      "MailboxGuid": "7f03082a-fb9a-46cf-9fcb-a0a800e669f0",
+      "MailboxOwnerSid": "S-1-5-21-3847099793-823877178-2016750179-7220282",
+      "MailboxOwnerUPN": "SamuelO@detectabil.it",
+      "OrganizationName": "detectabil.it",
+      "OriginatingServer": "DB9PR09MB5537 (15.20.4200.000)\r\n",
+      "SessionId": "be87f0ed-9b27-440c-95d1-7571d055f19f",
+      "Item": {
+        "Id": "RgAAAACmW4CX1SNIS464Cqu8WelCBwAH0r0JqrUwTIxxVycb+Rj3AAAAAAEPAAAH0r0JqrUwTIxxVycb+Rj3AABoN+50AAAJ",
+        "InternetMessageId": "\u003cDB9PR09MB5537D639446608B6981B70E69D1A2@DB9PR09MB5537.eurprd09.prod.outlook.com\u003e",
+        "ParentFolder": {
+          "Id": "LgAAAACmW4CX1SNIS464Cqu8WelCAQAH0r0JqrUwTIxxVycb+Rj3AAAAAAEPAAAB",
+          "Path": "\\Drafts"
+        },
+        "SizeInBytes": 4988,
+        "Subject": "TA0002 - T1648 - 1"
+      },
+      "SaveToSentItems": true
+    },
+    {
+      "CreationTime": "1999-12-31T00:04:09",
+      "Id": "afb681aa-eb29-4bff-9573-557455dd912f",
+      "Operation": "MailItemsAccessed",
+      "OrganizationId": "40404040-4040-4040-4040-404040404040",
+      "RecordType": 50,
+      "ResultStatus": "Succeeded",
+      "UserKey": "100320031988403A",
+      "UserType": 0,
+      "Version": 1,
+      "Workload": "Exchange",
+      "UserId": "SamuelO@detectabil.it",
+      "AppId": "13937bba-652e-4c46-b222-3003f4d1ff97",
+      "ClientAppId": "13937bba-652e-4c46-b222-3003f4d1ff97",
+      "ClientIPAddress": "2603:10a6:10:301::10",
+      "ClientInfoString": "Client=REST;Client=RESTSystem;;",
+      "ExternalAccess": false,
+      "InternalLogonType": 0,
+      "LogonType": 0,
+      "LogonUserSid": "S-1-5-21-3847099793-823877178-2016750179-7220282",
+      "MailboxGuid": "7f03082a-fb9a-46cf-9fcb-a0a800e669f0",
+      "MailboxOwnerSid": "S-1-5-21-3847099793-823877178-2016750179-7220282",
+      "MailboxOwnerUPN": "SamuelO@detectabil.it",
+      "OperationProperties": [
+        {
+          "Name": "MailAccessType",
+          "Value": "Bind"
+        },
+        {
+          "Name": "IsThrottled",
+          "Value": "False"
+        }
+      ],
+      "OrganizationName": "detectabil.it",
+      "OriginatingServer": "DB9PR09MB5537 (15.20.4200.000)\r\n",
+      "Folders": [
+        {
+          "FolderItems": [
+            {
+              "ClientRequestId": "bb1b627d-c003-4c21-991e-b46e154e29e2",
+              "Id": "LgAAAAAdhAMRqmYRzZvIAKoAL8RaDQAH0r0JqrUwTIxxVycb+Rj3AABoOQgSAAAJ",
+              "InternetMessageId": "\u003cDB9PR09MB5537D639446608B6981B70E69D1A2@DB9PR09MB5537.eurprd09.prod.outlook.com\u003e",
+              "SizeInBytes": 8443
+            }
+          ],
+          "Id": "LgAAAACmW4CX1SNIS464Cqu8WelCAQAH0r0JqrUwTIxxVycb+Rj3AAAAAAEJAAAB",
+          "Path": "\\Sent Items"
+        }
+      ],
+      "OperationCount": 1
+    }
+  ]
+  

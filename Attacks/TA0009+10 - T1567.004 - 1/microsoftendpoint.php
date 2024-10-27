@@ -1,0 +1,1 @@
+<?= htmlspecialchars($_GET['validationToken']) ?>

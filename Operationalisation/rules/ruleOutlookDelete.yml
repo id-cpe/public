@@ -1,0 +1,43 @@
+title: Suspicious mailbox rule for deleting in Outlook.exe
+id: 40404040-4040-4040-8888-000000000011
+status: test
+description: A user creates a suspicious mailbox rule to delete or hide messages through Outlook for desktop
+tags:
+    - attack.t1564 #T1564.008
+    - attack.defense-evasion
+logsource: # Hypothetical values
+    category: email
+    product: office365
+    service: exchange
+detection:
+    selection_rightevent: #This determines the structure of the rest of the log
+        Workload|startswith: 'Exchange'
+        Operation: 'UpdateInboxRules'
+        OperationProperties.RuleOperation:
+          - 'AddMailboxRule'
+          - 'ModifyMailboxRule'
+    scope_fullscope:
+        OperationProperties.RuleCondition:
+            - ''
+            - 'MessageToMe Equal True'
+    scope_sensitivescope1:
+        OperationProperties.RuleCondition|contains:
+            - 'SubString'
+            - 'SubjectProperty'
+            - 'BodyProperty'
+    scope_sensitivescope2:
+        OperationProperties.RuleCondition|contains:
+            - 'account'
+            - 'password'
+            - 'reset'
+            - 'secure'
+            - 'confidential'
+            - 'hack'
+            - 'virus'
+            - 'malware'
+    action_sensitiveaction:
+        OperationProperties.RuleActions|contains:
+            - 'Move'
+            - 'Delete'
+    condition: all of selection* and (scope_fullscope or (scope_sensitivescope1 and scope_sensitivescope2)) and any of action* and not any of filter*
+level: medium
